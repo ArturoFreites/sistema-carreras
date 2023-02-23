@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Inscripcion Carrera MTB</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link th:href="@{/styles.css}" rel="stylesheet">
+    <link rel="shortcut icon" href="https://i.ibb.co/Q8dB0ky/huevo.png"/>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="https://www.lezama.gov.ar/static/media/MuniBlanco.0f958264e6eb11eaa731.webp" alt="Eagg News" width="200">
+        </a>
+    </div>
+</nav>
+
+<h1>INSCIPCION CARRERA MTB</h1>
+<section class="section-noticias">
+    <form method="post" th:action="@{/registrar}">
+        <div class="mb-3">
+            <input required type="text" maxlength="12" class="form-control" name="nombre" placeholder="Nombre">
+            <input required type="text" maxlength="12" class="form-control" name="apellido" placeholder="Apellido">
+        </div>
+        <div class="mb-3">
+            <input required type="number" max="99999999" class="form-control" name="dni" placeholder="DNI">
+            <input required type="number" max="2007" class="form-control" name="anioNac" placeholder="Año de nacimiento">
+        </div>
+        <div class="mb-3">
+            <input required type="text" maxlength="12" class="form-control" name="telefono" placeholder="WhatsApp">
+            <input  requiredtype="text" maxlength="12" class="form-control" name="localidad" placeholder="Localidad">
+        </div>
+        <div class="mb-3">
+            <input required type="text" maxlength="30" class="form-control" name="team" placeholder="Nombre de team">
+        </div>
+        <div class="mb-3">
+            <select required name="idCompeticion" class="form-control" id="dropDownList1">
+                <option value="">Seleccione competicion</option>
+                <option th:each="competicion : ${competiciones}" th:value="${competicion.id}" th:text="${competicion.tipo}"></option>
+            </select>
+            <select required name="idGenero" class="form-control" id="dropDownList">
+                <option value="">Seleccione genero</option>
+                <option th:each="genero : ${generos}" th:value="${genero.id}" th:text="${genero.tipo}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Inscribirse</button>
+    </form>
+</section>
+
+
+<section class="footer-eggnews">
+    <img src="https://www.lezama.gov.ar/static/media/MuniBlanco.0f958264e6eb11eaa731.webp" alt="Eagg News" width="200">
+    <h3>Pagina diseñada por el Área de Sistemas</h3>
+</section>
+
+</body>
+
+</html>

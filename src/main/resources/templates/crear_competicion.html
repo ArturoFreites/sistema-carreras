@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Competicion</title>
+</head>
+<body>
+  <h1>crear competicion</h1>
+  <form method="post" th:action="@{/organizador12345QWERT/registrarcomp}">
+    <div class="mb-3">
+      <input required type="text" maxlength="12" class="form-control" name="tipo" placeholder="Nombre Competicion">
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>
+</body>
+</html>
